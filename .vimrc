@@ -124,12 +124,12 @@ set wrap "Wrap lines
 
 
 " Return to last edit position when opening files (You want this!)
-" autocmd BufReadPost *
-"      \ if line("'\"") > 0 && line("'\"") <= line("$") |
-"      \   exe "normal! g`\"" |
-"      \ endif
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
 " Remember info about open buffers on close
-" set viminfo^=%
+set viminfo^=%
 
 
 """"""""""""""""""""""""""""""
@@ -138,5 +138,21 @@ set wrap "Wrap lines
 " Always show the status line
 set laststatus=2
 
+" Enable paste toggle
+set pastetoggle=<f5>
+
+" If you prefer the Omni-Completion tip window to close when a selection is
+" " made, these lines close it on movement in insert mode or when leaving
+" " insert mode
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
 
 runtime macros/matchit.vim
+
+""""""""""""""""""""""""""""""
+" => Clojure 
+""""""""""""""""""""""""""""""
+let g:paredit_mode = 1
+"Forcing the use of \ as mapleader, otherwise paredit will set , as mapleader
+let mapleader = "\\"
