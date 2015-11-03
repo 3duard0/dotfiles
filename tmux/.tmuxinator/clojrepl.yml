@@ -1,0 +1,9 @@
+project_name: development
+project_root: ~/workspace/clojrepl
+windows:
+    - editor:
+        layout: ff47,211x53,0,0{175x53,0,0,46,35x53,176,0,48}
+        panes:
+            - vim
+            - lein repl
+    - shell: #empty
