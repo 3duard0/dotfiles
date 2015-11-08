@@ -9,4 +9,8 @@ fi
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
+function sudo {
+  ARGS="$@"
+  su root -c "$ARGS"
+}
 alias vim="vimx"
