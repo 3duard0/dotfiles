@@ -32,6 +32,9 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec gnome-terminal
 
+# lock computer
+bindsym $mod+Shift+p exec i3lock -c 000000
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
