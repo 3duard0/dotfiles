@@ -16,6 +16,8 @@
 		      mustard-theme
 		      ;;git
 		      magit
+		      ;;Mostra os atalhos de comandos
+		      helm
 		      ;;hackernews
 		      hackernews))
 ;; Instala o que não tiver sido instalado
@@ -25,15 +27,14 @@
 
 ;; Ativa ace-jump
 (require 'ace-jump-mode)
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+(define-key global-map (kbd "C-c C-SPC") 'ace-jump-mode)
 
 ;; Ativar o tema
 (require 'mustard-theme)
 
+(require 'helm)
 
 (custom-set-variables
- ;; Ctrl-c Ctrl-v e Ctrl-x para copiar, colar e cortar :}
- '(cua-mode t nil (cua-base))
  ;; Desativa toolbar
  '(tool-bar-mode nil nil (tool-bar)))
 
