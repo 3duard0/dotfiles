@@ -91,6 +91,9 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
+" Colors for omnicompletion menu
+highlight Pmenu ctermfg=254 ctermbg=241
+highlight PmenuSel ctermfg=254 ctermbg=136 cterm=bold
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
@@ -156,3 +159,4 @@ runtime macros/matchit.vim
 let g:paredit_mode = 1
 "Forcing the use of \ as mapleader, otherwise paredit will set , as mapleader
 let mapleader = "\\"
+
