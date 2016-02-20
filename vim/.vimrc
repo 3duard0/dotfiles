@@ -60,7 +60,7 @@ set t_vb=
 set tm=500
 
 " Add a bit extra margin to the left
-set foldcolumn=1
+"set foldcolumn=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -69,7 +69,7 @@ set foldcolumn=1
 syntax enable
 
 try
-    colorscheme default
+    colorscheme solarized
 catch
 endtry
 
@@ -83,6 +83,7 @@ if has("gui_running")
     set guitablabel=%M\ %t
 endif
 
+set t_Co=256
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
@@ -157,7 +158,7 @@ runtime macros/matchit.vim
 " => Clojure
 """"""""""""""""""""""""""""""
 let g:paredit_mode = 1
-"Forcing the use of \ as mapleader, otherwise paredit will set , as mapleader
+" Forcing the use of \ as mapleader, otherwise paredit will set , as mapleader
 let mapleader = "\\"
 
 """"""""""""""""""""""""""""""
@@ -181,4 +182,14 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Close vim if the only window open is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+
+""""""""""""""""""""""""""""""
+" => Airline
+""""""""""""""""""""""""""""""
+let g:airline_powerline_fonts = 1
+let g:airline_theme='sol'
+
+" All buffers as tabs if only one tab
+"let g:airline#extensions#tabline#enabled = 1
 
