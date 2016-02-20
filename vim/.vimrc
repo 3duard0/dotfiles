@@ -83,9 +83,6 @@ if has("gui_running")
     set guitablabel=%M\ %t
 endif
 
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-endif
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
@@ -175,13 +172,13 @@ let g:ctrlp_root_markers = ['pom.xml', '.p4ignore']
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 """"""""""""""""""""""""""""""
-" => NerdTree
+" => NERDTree
 """"""""""""""""""""""""""""""
 map <C-n> :NERDTreeToggle<CR>
 
-""""""""""""""""""""""""""""""
-" => Airline
-""""""""""""""""""""""""""""""
-let g:airline_theme = 'badwolf'
-let g:airline_powerline_fonts=1
+" Open NERDTree automatically
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" Close vim if the only window open is NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
