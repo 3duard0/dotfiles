@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/eduardo/workspace/java/qualitymatters'
+let g:netrw_dirhist_2='/home/eduardo/workspace/java/qualitymatters/app'
+let g:netrw_dirhist_3='/home/eduardo/workspace/java/qualitymatters/app/src'
+let g:netrw_dirhist_4='/home/eduardo/workspace/java/qualitymatters/app'
+let g:netrw_dirhist_5='/home/eduardo/workspace/android/canarinho'
+let g:netrw_dirhist_6='/home/eduardo/workspace/android'
+let g:netrw_dirhist_7='/home/eduardo/workspace/android/canarinho'
+let g:netrw_dirhist_8='/home/eduardo/workspace/android/canarinho/canarinho'
+let g:netrw_dirhist_9='/home/eduardo/workspace/clojure/swagclj/test'
