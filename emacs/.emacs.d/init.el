@@ -9,6 +9,7 @@
 (setq inhibit-startup-message t)
 (blink-cursor-mode 0)
 
+(setq shell-file-name "/bin/bash")
 (setq evil-want-C-u-scroll t)
 (setq default-directory (getenv "HOME"))
 (add-to-list 'load-path "~/.emacs.d/lisp")
@@ -94,9 +95,12 @@
   :init (projectile-global-mode)
   :config
   (progn
+    (setq projectile-completion-system 'helm)
+    (helm-projectile-on)
     (evil-leader/set-key "pf" 'projectile-find-file)
     (evil-leader/set-key "pg" 'projectile-grep)
-    (evil-leader/set-key "pk" 'projectile-kill-buffers)))
+    (evil-leader/set-key "pk" 'projectile-kill-buffers)
+    (evil-leader/set-key "pt" 'projectile-regenerate-tags)))
 
 ;; Ativa evil-mode
 (use-package evil
@@ -181,6 +185,8 @@
     (evil-leader/set-key "cJ" 'cider-jack-in-clojurescript)
     (evil-leader/set-key "ct" 'cider-test-run-ns-tests)
     (evil-leader/set-key "cT" 'cider-test-run-project-tests)
+    (evil-leader/set-key "ca" 'cider-macroexpand-all)
+    (evil-leader/set-key "cm" 'cider-macroexpand-1)
     (evil-leader/set-key "cn" 'cider-repl-set-ns)
     (evil-leader/set-key "cr" 'toggle-nrepl-buffer)
     (evil-leader/set-key "cf" 'cider-save-and-refresh)))
