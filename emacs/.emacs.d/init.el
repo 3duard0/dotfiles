@@ -38,7 +38,7 @@
 ;; Ativar o tema
 ;;(use-package mustard-theme)
 ;;(load-theme 'weft t)
-(load-theme 'idea-darkula t)
+;;(load-theme 'idea-darkula t)
 
 ;; ;; Custom mode-line
 (use-package powerline
@@ -78,7 +78,7 @@
     (evil-leader/set-key "ys" 'yas-insert-snippet)))
 
 (use-package company
-  :init (global-company-mode)
+  :init (add-hook 'after-init-hook 'global-company-mode)
   :config
   (progn
     (defun indent-or-complete ()
@@ -110,7 +110,7 @@
     (use-package evil-org
       :init (add-hook 'org-mode-hook 'evil-org-mode))
     (use-package evil-leader
-      :init (global-evil-leader-mode)
+      :init (add-hook 'after-init-hook 'global-evil-leader-mode)
       :config
       (progn
         (evil-leader/set-leader "\\")))
@@ -121,7 +121,7 @@
     (use-package evil-cleverparens
       :init (add-hook 'paredit-mode-hook 'evil-cleverparens-mode))
     (use-package evil-surround
-      :init (global-evil-surround-mode 1))
+      :init (add-hook 'after-init-hook 'global-evil-surround-mode))
     (use-package evil-commentary
       :init
       (evil-leader/set-key "cc" 'evilnc-comment-or-uncomment-lines))))
