@@ -1,5 +1,38 @@
 execute pathogen#infect()
 
+
+""""""""""""""""""""""""""""""""
+" => Vundle Configuration BEGIN
+""""""""""""""""""""""""""""""""
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+"
+" " let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+""""""""""""""""""""""""""""""""
+" => Vundle Configuration END
+""""""""""""""""""""""""""""""""
+Plugin 'tpope/vim-pathogen'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-classpath'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-scripts/paredit.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'kien/ctrlp.vim'
+
+
 syntax on
 filetype plugin indent on
 
@@ -68,10 +101,10 @@ set tm=500
 " Enable syntax highlighting
 syntax enable
 
-try
-    colorscheme solarized
-catch
-endtry
+"try
+    "colorscheme solarized
+"catch
+"endtry
 
 set background=dark
 
