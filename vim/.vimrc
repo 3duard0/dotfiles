@@ -106,10 +106,10 @@ set tm=500
 " Enable syntax highlighting
 syntax enable
 
-"try
-    "colorscheme solarized
-"catch
-"endtry
+try
+    colorscheme solarized
+catch
+endtry
 
 set background=dark
 
