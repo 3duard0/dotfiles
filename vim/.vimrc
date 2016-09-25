@@ -20,17 +20,22 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-pathogen'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
+" Clojure Plugins
 Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-classpath'
+Plugin 'vim-scripts/paredit.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vim-scripts/paredit.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'kien/ctrlp.vim'
+" Rust Plugins
+Plugin 'rust-lang/rust.vim'
+Plugin 'timonv/vim-cargo'
+Plugin 'racer-rust/vim-racer'
 
 
 syntax on
@@ -226,3 +231,7 @@ let g:airline_theme='sol'
 " All buffers as tabs if only one tab
 "let g:airline#extensions#tabline#enabled = 1
 
+
+set hidden
+let g:racer_cmd="/home/eduardo/.cargo/bin/racer"
+let $RUST_SRC_PATH="/usr/local/src/rust/src"
