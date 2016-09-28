@@ -1,3 +1,4 @@
+;;; Importing
 (require 'package)
 (push '("marmalade" . "http://marmalade-repo.org/packages/")
       package-archives)
@@ -6,12 +7,18 @@
 
 (package-initialize)
 
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
+
 (setq inhibit-startup-message t)
 (blink-cursor-mode 0)
+(global-linum-mode t)
+(global-flycheck-mode t)
 
 (setq shell-file-name "/bin/bash")
 (setq evil-want-C-u-scroll t)
 (setq default-directory (getenv "HOME"))
+
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
@@ -26,7 +33,7 @@
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
 ;; Buffer settings
-(setq-default indent-tabs-mode nil) 
+(setq-default indent-tabs-mode nil)
 (setq require-final-newline t)
 (setq show-trailing-whitespace t)
 
@@ -37,7 +44,7 @@
 
 ;; Ativar o tema
 ;;(use-package mustard-theme)
-;;(load-theme 'weft t)
+(load-theme 'wombat t)
 ;;(load-theme 'idea-darkula t)
 
 ;; ;; Custom mode-line
@@ -206,12 +213,12 @@
     (setq cider-prompt-save-file-on-load nil)
     (setq cider-repl-display-help-banner nil)))
 
-(use-package typed-clojure-mode
-  :init
-  (add-hook 'clojure-mode-hook 'typed-clojure-mode)
-  :config
-  (progn
-    (evil-leader/set-key "tc" 'typed-clojure-check-ns)))
+;; (use-package typed-clojure-mode
+;;   :init
+;;   (add-hook 'clojure-mode-hook 'typed-clojure-mode)
+;;   :config
+;;   (progn
+;;     (evil-leader/set-key "tc" 'typed-clojure-check-ns)))
 
 (use-package clj-refactor
   :init
@@ -229,3 +236,10 @@
     (evil-leader/set-key "rcp" 'cljr-cycle-privacy)
     (evil-leader/set-key "rcs" 'clojure-toggle-keyword-string)
     (evil-leader/set-key "rfe" 'cljr-create-fn-from-example)))
+
+;; Rust racer configuration
+;; (setq racer-rust-src-path "/usr/local/src/rust/src")
+;; (add-hook 'rust-mode-hook #'racer-mode)
+;; (add-hook 'racer-mode-hook #'eldoc-mode)
+;; (add-hook 'racer-mode-hook #'company-mode)
+
