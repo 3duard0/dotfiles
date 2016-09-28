@@ -181,6 +181,7 @@
     (evil-leader/set-key "ef" 'cider-eval-defun-at-point)
 
     (evil-leader/set-key "cd" 'cider-doc)
+    (evil-leader/set-key "cf" 'cider-find-dwim)
     (evil-leader/set-key "cC" 'cider-connect)
     (evil-leader/set-key "cj" 'cider-jack-in)
     (evil-leader/set-key "cJ" 'cider-jack-in-clojurescript)
@@ -190,7 +191,7 @@
     (evil-leader/set-key "cm" 'cider-macroexpand-1)
     (evil-leader/set-key "cn" 'cider-repl-set-ns)
     (evil-leader/set-key "cr" 'toggle-nrepl-buffer)
-    (evil-leader/set-key "cf" 'cider-save-and-refresh)))
+    (evil-leader/set-key "cs" 'cider-save-and-refresh)))
 
 (use-package cider
   :init
