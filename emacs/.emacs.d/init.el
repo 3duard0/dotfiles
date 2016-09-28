@@ -1,4 +1,3 @@
-;;; Importing
 (require 'package)
 (push '("marmalade" . "http://marmalade-repo.org/packages/")
       package-archives)
@@ -21,8 +20,8 @@
 
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(load "~/.emacs.d/lisp/custom.el")
 
-;; Instala o que não tiver sido instalado
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
@@ -38,14 +37,9 @@
 (setq show-trailing-whitespace t)
 
 (require 'use-package)
-;; Ativa ace-jump
-(use-package ace-jump-mode
-             :init (define-key global-map (kbd "C-c C-SPC") 'ace-jump-mode))
 
-;; Ativar o tema
-;;(use-package mustard-theme)
+;; Tema
 (load-theme 'wombat t)
-;;(load-theme 'idea-darkula t)
 
 ;; ;; Custom mode-line
 (use-package powerline
@@ -213,12 +207,12 @@
     (setq cider-prompt-save-file-on-load nil)
     (setq cider-repl-display-help-banner nil)))
 
-;; (use-package typed-clojure-mode
-;;   :init
-;;   (add-hook 'clojure-mode-hook 'typed-clojure-mode)
-;;   :config
-;;   (progn
-;;     (evil-leader/set-key "tc" 'typed-clojure-check-ns)))
+(use-package typed-clojure-mode
+  :init
+  (add-hook 'clojure-mode-hook 'typed-clojure-mode)
+  :config
+  (progn
+    (evil-leader/set-key "tc" 'typed-clojure-check-ns)))
 
 (use-package clj-refactor
   :init
@@ -237,9 +231,5 @@
     (evil-leader/set-key "rcs" 'clojure-toggle-keyword-string)
     (evil-leader/set-key "rfe" 'cljr-create-fn-from-example)))
 
-;; Rust racer configuration
-;; (setq racer-rust-src-path "/usr/local/src/rust/src")
-;; (add-hook 'rust-mode-hook #'racer-mode)
-;; (add-hook 'racer-mode-hook #'eldoc-mode)
-;; (add-hook 'racer-mode-hook #'company-mode)
+(evil-leader/set-key "es" 'toggle-eshell-buffer)
 
