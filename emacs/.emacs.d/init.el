@@ -108,6 +108,8 @@
   :init
   (progn
     (evil-mode 1)
+    (evil-leader/set-key "es" 'toggle-eshell-buffer)
+
     (use-package evil-org
       :init (add-hook 'org-mode-hook 'evil-org-mode))
     (use-package evil-leader
@@ -231,6 +233,4 @@
     (evil-leader/set-key "rcp" 'cljr-cycle-privacy)
     (evil-leader/set-key "rcs" 'clojure-toggle-keyword-string)
     (evil-leader/set-key "rfe" 'cljr-create-fn-from-example)))
-
-(evil-leader/set-key "es" 'toggle-eshell-buffer)
 
