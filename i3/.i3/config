@@ -165,3 +165,7 @@ bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
 
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
+
+exec --no-startup-id /usr/bin/emacs --daemon
+exec --no-startup-id nm-applet
+exec --no-startup-id feh --bg-scale "/home/eduardo/Imagens/Wallpapers/gnu.png"
