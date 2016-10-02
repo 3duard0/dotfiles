@@ -1,4 +1,4 @@
 [core]
-	editor = vim
+	editor = emacs
 [alias]
 	graph = log --graph --all --decorate --pretty=oneline --abbrev-commit
