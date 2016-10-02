@@ -1,4 +1,9 @@
 [core]
-	editor = emacs
+	editor = emacsclient -t
 [alias]
 	graph = log --graph --all --decorate --pretty=oneline --abbrev-commit
+[user]
+	email = dududuedu.seabra@gmail.com
+	name = Eduardo Seabra
+[push]
+	default = simple
