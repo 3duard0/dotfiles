@@ -12,6 +12,7 @@
 (setq inhibit-startup-message t)
 (blink-cursor-mode 0)
 (global-linum-mode t)
+(setq linum-format "%d ")
 (global-flycheck-mode t)
 
 (setq shell-file-name "/bin/bash")
