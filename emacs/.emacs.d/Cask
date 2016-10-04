@@ -24,6 +24,7 @@
 (depends-on "evil")
 (depends-on "evil-leader")
 (depends-on "evil-commentary")
+(depends-on "evil-nerd-commenter")
 (depends-on "evil-cleverparens")
 (depends-on "evil-surround")
 (depends-on "evil-org")
