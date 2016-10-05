@@ -51,4 +51,5 @@
 (depends-on "rainbow-mode")
 (depends-on "linum-relative")
 (depends-on "quickrun")
+(depends-on "spotify")
 

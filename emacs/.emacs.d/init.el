@@ -235,3 +235,12 @@
     (evil-leader/set-key "rcs" 'clojure-toggle-keyword-string)
     (evil-leader/set-key "rfe" 'cljr-create-fn-from-example)))
 
+
+(use-package spotify
+  :config
+  (progn
+    (evil-leader/set-key "sp" 'spotify-previous)
+    (evil-leader/set-key "sn" 'spotify-next)
+    (evil-leader/set-key "ss" 'spotify-playpause)
+    (evil-leader/set-key "sc" 'spotify-current))))))
+
