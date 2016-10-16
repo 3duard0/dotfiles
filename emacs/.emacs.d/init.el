@@ -9,38 +9,34 @@
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 
-(setq inhibit-startup-message t)
-(blink-cursor-mode 0)
-(global-linum-mode t)
-(setq linum-format "%d ")
-(global-flycheck-mode t)
-
-(setq shell-file-name "/bin/bash")
-(setq evil-want-C-u-scroll t)
-(setq default-directory (getenv "HOME"))
-
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (load "~/.emacs.d/lisp/custom.el")
 
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
+(setq 
+  inhibit-startup-message t
+  linum-format "%d "
+  shell-file-name "/bin/bash"
+  evil-want-C-u-scroll t
+  default-directory (getenv "HOME")
+  default-major-mode 'text-mode
+  require-final-newline t
+  show-trailing-whitespace t)
 
+(blink-cursor-mode 0)
+(global-linum-mode t)
+(global-flycheck-mode t)
 (custom-set-faces)
 
-(setq default-major-mode 'text-mode)
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
 ;; Buffer settings
 (setq-default indent-tabs-mode nil)
-(setq require-final-newline t)
-(setq show-trailing-whitespace t)
-
-(require 'use-package)
 
 ;; Tema
 (load-theme 'wombat t)
+
+(require 'use-package)
 
 ;; ;; Custom mode-line
 (use-package powerline
@@ -91,6 +87,7 @@
     (global-set-key "\t" 'indent-or-complete)))
 
 (use-package clojure-cheatsheet)
+
 (use-package better-defaults)
 
 (use-package projectile
@@ -235,12 +232,13 @@
     (evil-leader/set-key "rcs" 'clojure-toggle-keyword-string)
     (evil-leader/set-key "rfe" 'cljr-create-fn-from-example)))
 
-
 (use-package spotify
   :config
   (progn
     (evil-leader/set-key "sp" 'spotify-previous)
     (evil-leader/set-key "sn" 'spotify-next)
     (evil-leader/set-key "ss" 'spotify-playpause)
-    (evil-leader/set-key "sc" 'spotify-current))))))
+    (evil-leader/set-key "sc" 'spotify-current)))
 
+(provide 'init)
+;;; init.el ends here
