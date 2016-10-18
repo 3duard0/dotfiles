@@ -30,7 +30,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec gnome-terminal -e /usr/bin/fish
 
 # lock computer
 bindsym $mod+Shift+p exec i3lock -c 000000
