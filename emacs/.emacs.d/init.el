@@ -26,7 +26,12 @@
 (blink-cursor-mode 0)
 (global-linum-mode t)
 (global-flycheck-mode t)
-(custom-set-faces)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
 
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
@@ -185,6 +190,7 @@
     (evil-leader/set-key "cC" 'cider-connect)
     (evil-leader/set-key "cj" 'cider-jack-in)
     (evil-leader/set-key "cJ" 'cider-jack-in-clojurescript)
+    (evil-leader/set-key "ci" 'cider-interrupt)
     (evil-leader/set-key "ct" 'cider-test-run-ns-tests)
     (evil-leader/set-key "cT" 'cider-test-run-project-tests)
     (evil-leader/set-key "ca" 'cider-macroexpand-all)
@@ -240,5 +246,16 @@
     (evil-leader/set-key "ss" 'spotify-playpause)
     (evil-leader/set-key "sc" 'spotify-current)))
 
+(use-package elpy
+  :init
+  (elpy-enable)
+  :config
+  (progn
+    (evil-leader/set-key "pd" 'elpy-doc)
+    (evil-leader/set-key "pr" 'elpy-shell-switch-to-shell)
+    (evil-leader/set-key "pf" 'elpy-goto-definition)
+    (evil-leader/set-key "pe" 'elpy-shell-send-region-or-buffer)))
+
 (provide 'init)
 ;;; init.el ends here
+
