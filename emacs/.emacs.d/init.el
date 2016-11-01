@@ -256,6 +256,10 @@
     (evil-leader/set-key "pf" 'elpy-goto-definition)
     (evil-leader/set-key "pe" 'elpy-shell-send-region-or-buffer)))
 
+(use-package xclip
+  :init
+  (xclip-mode 1))
+
 (provide 'init)
 ;;; init.el ends here
 
