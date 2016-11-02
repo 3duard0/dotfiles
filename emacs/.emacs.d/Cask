@@ -53,5 +53,4 @@
 (depends-on "quickrun")
 (depends-on "elpy")
 (depends-on "spotify")
-(depends-on "xclip")
 

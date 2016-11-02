@@ -251,14 +251,10 @@
   (elpy-enable)
   :config
   (progn
-    (evil-leader/set-key "pd" 'elpy-doc)
-    (evil-leader/set-key "pr" 'elpy-shell-switch-to-shell)
-    (evil-leader/set-key "pf" 'elpy-goto-definition)
-    (evil-leader/set-key "pe" 'elpy-shell-send-region-or-buffer)))
-
-(use-package xclip
-  :init
-  (xclip-mode 1))
+    (evil-leader/set-key "yd" 'elpy-doc)
+    (evil-leader/set-key "yr" 'elpy-shell-switch-to-shell)
+    (evil-leader/set-key "yf" 'elpy-goto-definition)
+    (evil-leader/set-key "ye" 'elpy-shell-send-region-or-buffer)))
 
 (provide 'init)
 ;;; init.el ends here
