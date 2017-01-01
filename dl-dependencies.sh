@@ -18,6 +18,7 @@ sudo apt install gcc\
                  gdb wireshark radare2\
                  pavucontrol\
                  htop\
+                 redshift\
                  cloc
 
 cp "$DIR/bin/*" "$BIN_FOLDER"
@@ -29,4 +30,3 @@ sudo pip install --upgrade youtube_dl
 
 git clone https://github.com/longld/peda.git "$HOME/peda"
 echo "source ~/peda/peda.py" >> ~/.gdbinit
-echo "DONE! debug your program with gdb and enjoy"
