@@ -1,5 +1,3 @@
-execute pathogen#infect()
-
 
 """"""""""""""""""""""""""""""""
 " => Vundle Configuration BEGIN
@@ -36,6 +34,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'timonv/vim-cargo'
 Plugin 'racer-rust/vim-racer'
+
+call vundle#end()
 
 
 syntax on

@@ -5,8 +5,8 @@
 BIN_FOLDER="$HOME/bin"
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-sudo apt-get update
-sudo apt install gcc\
+apt update
+apt install gcc\
                  emacs vim xclip\
                  python-pip\
                  sshpass\
@@ -18,15 +18,24 @@ sudo apt install gcc\
                  gdb wireshark radare2\
                  pavucontrol\
                  htop\
-                 redshift\
+                 redshift ranger\
                  cloc
 
-cp "$DIR/bin/*" "$BIN_FOLDER"
+apt purge xserver-xorg-video-ati xserver-xorg-video-radeon
 
-git clone https://raw.githubusercontent.com/slimm609/checksec.sh/master/checksec "$BIN_FOLDER"
-git clone https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein "$BIN_FOLDER"
+if [ ! -d $BIN_FOLDER ]; then
+    mkdir -p $BIN_FOLDER
+fi
+
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+wget https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein -P "$BIN_FOLDER"
+chmod +x "$BIN_FOLDER/lein"
+wget https://raw.githubusercontent.com/slimm609/checksec.sh/master/checksec -P "$BIN_FOLDER"
+chmod +x "$BIN_FOLDER/checksec"
 
 sudo pip install --upgrade youtube_dl
 
 git clone https://github.com/longld/peda.git "$HOME/peda"
 echo "source ~/peda/peda.py" >> ~/.gdbinit
+
