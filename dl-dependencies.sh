@@ -19,9 +19,11 @@ apt install gcc\
                  pavucontrol\
                  htop\
                  redshift ranger\
+                 evince\
                  cloc
 
 apt purge xserver-xorg-video-ati xserver-xorg-video-radeon
+./$DIR/fix-intel.sh
 
 if [ ! -d $BIN_FOLDER ]; then
     mkdir -p $BIN_FOLDER
