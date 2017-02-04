@@ -18,7 +18,8 @@ apt install gcc\
                  gdb wireshark radare2\
                  pavucontrol\
                  htop\
-                 redshift ranger\
+                 redshift\
+                 ranger w3m caca-utils\
                  evince\
                  cloc
 

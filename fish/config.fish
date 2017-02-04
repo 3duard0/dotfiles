@@ -39,6 +39,7 @@ function fish_prompt --description 'Write out the prompt'
 end
 
 set PATH "$HOME/bin" $PATH
+set -x EDITOR vim
 
 # some aliases
 alias ll "ls -alF"

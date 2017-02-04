@@ -6,6 +6,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 mkdir -p $BIN_FOLDER
 cp -R $DIR/bin/* "$BIN_FOLDER"
 cp -R "$DIR/fish/config.fish" "$HOME/.config/fish"
+cp -R "$DIR/ranger/*" "$HOME/.config/ranger"
 cp -R "$DIR/tmux/.tmux.conf" "$HOME/.tmux.conf"
 cp -R $DIR/vim/.vim/* "$HOME/.vim"
 cp -R "$DIR/vim/.vimrc" "$HOME/.vimrc"
