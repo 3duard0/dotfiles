@@ -1,0 +1,8 @@
+
+1) In /etc/default/grub set GRUB_CMDLINE_LINUX="i8042.nopnp"
+2) Run update-grub
+3) Create file /etc/modprob.d/i2c_hid.conf containing: blacklist i2c_hid
+4) Run depmod -ae
+5) Run update initramfs -u
+6) Add synaptics_i2c in a new line in /etc/modules
+7) Reboot
