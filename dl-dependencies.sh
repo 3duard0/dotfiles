@@ -10,6 +10,7 @@ sudo apt install gcc\
             emacs vim xclip\
             python-pip\
             sshpass\
+            cowsay fonts-hack-ttf\
             git\
             tmux\
             dmenu i3 i3status i3lock xbacklight feh\
@@ -38,3 +39,6 @@ chmod +x "$BIN_FOLDER/checksec"
 git clone https://github.com/longld/peda.git "$HOME/peda"
 echo "source ~/peda/peda.py" >> ~/.gdbinit
 
+# Fish
+curl -L https://get.oh-my.fish | fish
+omf install bobthefish
