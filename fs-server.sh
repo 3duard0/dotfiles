@@ -2,7 +2,7 @@
 # RUN AS ROOT PLEASE :)
 
 HOST="fs-server"
-HOST_IP="172.10.0.157"
+HOST_IP="192.0.0.2"
 CREDENTIALS_FILE="/root/.smbcredentials"
 VOLUME="Volume_1"
 
