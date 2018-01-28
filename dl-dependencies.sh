@@ -5,10 +5,8 @@
 BIN_FOLDER="$HOME/bin"
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list
-
-apt update
-apt install gcc\
+sudo apt update
+sudo apt install gcc\
             emacs vim xclip\
             python-pip\
             sshpass\
@@ -23,9 +21,8 @@ apt install gcc\
             ranger w3m caca-utils\
             youtube-dl\
             evince\
+            openjdk-8-jdk\
             cloc
-
-apt install -t jessie-backports openjdk-8-jdk
 
 if [ ! -d $BIN_FOLDER ]; then
     mkdir -p $BIN_FOLDER
