@@ -1,5 +1,0 @@
-#!/bin/bash
-killall emacs
-sleep 1.5
-$HOME/bin/emacsd && $HOME/bin/emacs
-
