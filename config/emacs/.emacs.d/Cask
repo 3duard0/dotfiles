@@ -53,4 +53,5 @@
 (depends-on "quickrun")
 (depends-on "elpy")
 (depends-on "spotify")
-
+(depends-on "racket-mode")
+(depends-on "geiser")
