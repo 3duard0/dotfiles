@@ -31,6 +31,8 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec gnome-terminal -e /usr/bin/fish
+bindsym $mod+Shift+Return exec gnome-terminal -e "/usr/bin/fish -c ranger"
+bindsym $mod+Shift+o exec emacsc
 
 # lock computer
 bindsym $mod+Shift+p exec i3lock -c 000000
@@ -166,7 +168,6 @@ bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 
-exec --no-startup-id /usr/bin/emacs --daemon
 exec --no-startup-id nm-applet
 exec --no-startup-id feh --bg-scale "/home/eduardo/Imagens/Wallpapers/gnu.png"
 exec --no-startup-id redshift
