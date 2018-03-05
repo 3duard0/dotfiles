@@ -1,5 +1,6 @@
 [core]
 	editor = vim
+	excludesfile = ~/.gitignore
 [alias]
 	graph = log --graph --all --decorate --pretty=oneline --abbrev-commit
 [user]
