@@ -8,6 +8,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 sudo apt update
 sudo apt install gcc\
             stow\
+            curl fish\
             emacs vim xclip\
             python-pip\
             sshpass\

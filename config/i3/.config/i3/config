@@ -32,7 +32,7 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec gnome-terminal -e /usr/bin/fish
 bindsym $mod+Shift+Return exec gnome-terminal -e "/usr/bin/fish -c ranger"
-bindsym $mod+Shift+o exec emacsc
+bindsym $mod+Shift+o exec emacsclient -c
 
 # lock computer
 bindsym $mod+Shift+p exec i3lock -c 000000
