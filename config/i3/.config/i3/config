@@ -165,6 +165,11 @@ bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
 
+bindsym XF86AudioPlay exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+bindsym XF86AudioStop exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
+bindsym XF86AudioNext exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+bindsym XF86AudioPrev exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 
