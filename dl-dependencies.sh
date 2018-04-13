@@ -25,6 +25,7 @@ sudo apt install gcc\
             youtube-dl\
             evince\
             openjdk-8-jdk\
+            wine winetricks\
             cloc
 
 if [ ! -d $BIN_FOLDER ]; then
