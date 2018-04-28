@@ -174,12 +174,13 @@ bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 
 # Wallpaper
-exec_always --no-startup-id feh --bg-scale "/home/eduardo/Pictures/wallpaper.jpg"
+exec_always --no-startup-id feh --bg-scale "/home/eduardo/Pictures/gnu-linux-white.jpg"
 
 # Network
 exec --no-startup-id nm-applet
 
 # Dual Monitor
 exec --no-startup-id xrandr --output HDMI-0 --left-of DP-4
-bindsym $mod+Shift+n exec xrandr --output HDMI-0 --off
+bindsym $mod+Shift+b exec xrandr --output HDMI-0 --auto --output DP-4   --off
+bindsym $mod+Shift+n exec xrandr --output DP-4   --auto --output HDMI-0 --off
 bindsym $mod+Shift+m exec xrandr --output HDMI-0 --auto --left-of DP-4
