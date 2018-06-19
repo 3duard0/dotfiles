@@ -12,6 +12,7 @@ sudo apt install gcc\
             emacs vim xclip\
             python-pip\
             sshpass\
+            cifs-utils ecryptfs-utils\
             cowsay fonts-hack-ttf\
             git\
             tmux\
