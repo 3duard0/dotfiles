@@ -21,6 +21,11 @@ Plugin 'airblade/vim-gitgutter'
 " Clojure Plugins
 Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-classpath'
+
+" Golang Plugins
+Plugin 'fatih/vim-go'
+
+" Misc Plugins
 Plugin 'vim-scripts/paredit.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdcommenter'
@@ -30,10 +35,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'kien/ctrlp.vim'
-" Rust Plugins
-Plugin 'rust-lang/rust.vim'
-Plugin 'timonv/vim-cargo'
-Plugin 'racer-rust/vim-racer'
+Plugin 'ervandew/supertab'
+Plugin 'vim-scripts/AutoComplPop'
 
 call vundle#end()
 
@@ -233,5 +236,22 @@ let g:airline_theme='sol'
 
 
 set hidden
-let g:racer_cmd="/home/eduardo/.cargo/bin/racer"
-let $RUST_SRC_PATH="/usr/local/src/rust/src"
+
+let g:go_fmt_command = "goimports"
+
+""""""""""""""""""""""""""""""
+" => Omni
+""""""""""""""""""""""""""""""
+set completeopt=longest,menuone
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+"" open omni completion menu closing previous if open and opening new menu without changing the text
+inoremap <expr> <C-Space> (pumvisible() ? (col('.') > 1 ? '<Esc>i<Right>' : '<Esc>i') : '') .
+            \ '<C-x><C-o><C-r>=pumvisible() ? "\<lt>C-n>\<lt>C-p>\<lt>Down>" : ""<CR>'
+" open user completion menu closing previous if open and opening new menu without changing the text
+inoremap <expr> <S-Space> (pumvisible() ? (col('.') > 1 ? '<Esc>i<Right>' : '<Esc>i') : '') .
+            \ '<C-x><C-u><C-r>=pumvisible() ? "\<lt>C-n>\<lt>C-p>\<lt>Down>" : ""<CR>'
+nnoremap <Leader>gr :w<CR> :GoRun<CR>
