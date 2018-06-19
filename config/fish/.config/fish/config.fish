@@ -4,14 +4,15 @@ set -q XDG_DATA_HOME
   or set -gx OMF_PATH "$HOME/.local/share/omf"
 
 # Load Oh My Fish configuration.
-source $OMF_PATH/init.fish
+#source $OMF_PATH/init.fish
 
 set -g theme_display_date no
 function fish_greeting
   cowsay (who)
 end
 
-set PATH "$HOME/bin" $PATH
+set -x GOPATH "$HOME/go"
+set PATH "$GOPATH/bin" "$HOME/bin" $PATH
 set -x EDITOR vim
 
 # some aliases
