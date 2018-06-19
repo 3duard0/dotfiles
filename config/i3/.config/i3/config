@@ -53,23 +53,17 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# move workspace
+bindsym $mod+Control+Shift+h move workspace to output left
+bindsym $mod+Control+Shift+j move workspace to output down
+bindsym $mod+Control+Shift+k move workspace to output up
+bindsym $mod+Control+Shift+l move workspace to output right
 
 # split in horizontal orientation
 bindsym $mod+v split h
@@ -141,12 +135,6 @@ mode "resize" {
         bindsym k resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -174,7 +162,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 
 # Wallpaper
-exec_always --no-startup-id feh --bg-scale "/home/eduardo/Pictures/gnu-linux-white.jpg"
+exec_always --no-startup-id feh --bg-scale "/home/eduardo/Pictures/gnu-linux-black.jpg"
 
 # Network
 exec --no-startup-id nm-applet
@@ -183,4 +171,9 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xrandr --output HDMI-0 --left-of DP-4
 bindsym $mod+Shift+b exec xrandr --output HDMI-0 --auto --output DP-4   --off
 bindsym $mod+Shift+n exec xrandr --output DP-4   --auto --output HDMI-0 --off
+bindsym $mod+Shift+g exec xrandr --output DP-4   --mode 1280x1024
+bindsym $mod+Shift+f exec xrandr --output DP-4   --mode 1920x1080
 bindsym $mod+Shift+m exec xrandr --output HDMI-0 --auto --left-of DP-4
+
+assign [class="(?i)Steam"] 2
+assign [class="(?i)csgo.*"] 2
