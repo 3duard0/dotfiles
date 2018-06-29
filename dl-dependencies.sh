@@ -3,6 +3,7 @@
 # This script has not been tested yet, to be used when computer is formated
 
 BIN_FOLDER="$HOME/bin"
+GO_BIN_FOLDER="$HOME/go/bin"
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 sudo apt update
@@ -15,6 +16,7 @@ sudo apt install gcc\
             cifs-utils ecryptfs-utils\
             cowsay fonts-hack-ttf\
             git\
+	        nvidia-driver\
             tmux\
             dmenu i3 i3status i3lock xbacklight feh\
             vlc mpg123 \
@@ -31,6 +33,10 @@ sudo apt install gcc\
 
 if [ ! -d $BIN_FOLDER ]; then
     mkdir -p $BIN_FOLDER
+fi
+
+if [ ! -d $GO_BIN_FOLDER ]; then
+    mkdir -p $GO_BIN_FOLDER
 fi
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
