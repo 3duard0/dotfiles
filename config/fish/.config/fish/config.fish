@@ -7,13 +7,14 @@ set -q XDG_DATA_HOME
 #source $OMF_PATH/init.fish
 
 set -g theme_display_date no
+
 function fish_greeting
-  cowsay (who)
+  cowsay -f tux (who)
 end
 
-set -x GOPATH "$HOME/go"
-set PATH "$GOPATH/bin" "$HOME/bin" $PATH
-set -x EDITOR vim
+set -gx GOPATH "$HOME/go"
+set -gx PATH "$GOPATH/bin" "$HOME/bin" $PATH
+set -gx EDITOR vim
 
 # some aliases
 alias ll "ls -alF"
