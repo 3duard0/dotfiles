@@ -150,8 +150,8 @@ bar {
 
 # Media keys
 bindsym XF86AudioMute exec amixer set Master 1+ toggle
-bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+
-bindsym XF86AudioLowerVolume exec amixer sset Master 5%-
+bindsym XF86AudioRaiseVolume exec amixer sset Master 2%+
+bindsym XF86AudioLowerVolume exec amixer sset Master 2%-
 
 bindsym XF86AudioPlay exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 bindsym XF86AudioStop exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
@@ -168,12 +168,15 @@ exec_always --no-startup-id feh --bg-scale "/home/eduardo/Pictures/gnu-linux-bla
 exec --no-startup-id nm-applet
 
 # Dual Monitor
-exec --no-startup-id xrandr --output HDMI-0 --left-of DP-4
-bindsym $mod+Shift+b exec xrandr --output HDMI-0 --auto --output DP-4   --off
-bindsym $mod+Shift+n exec xrandr --output DP-4   --auto --output HDMI-0 --off
-bindsym $mod+Shift+g exec xrandr --output DP-4   --mode 1280x1024
-bindsym $mod+Shift+f exec xrandr --output DP-4   --mode 1920x1080
-bindsym $mod+Shift+m exec xrandr --output HDMI-0 --auto --left-of DP-4
+set $monitor1 HDMI-0
+set $monitor2 DP-4
+exec --no-startup-id monitor.sh $monitor1 $monitor2 --auto
+bindsym $mod+Shift+b exec monitor.sh $monitor1 $monitor2 --left
+bindsym $mod+Shift+n exec monitor.sh $monitor1 $monitor2 --right
+bindsym $mod+Shift+m exec monitor.sh $monitor1 $monitor2 --auto
+
+# Layout
+new_window 1pixel
 
 assign [class="(?i)Steam"] 2
 assign [class="(?i)csgo.*"] 2
