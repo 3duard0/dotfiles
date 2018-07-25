@@ -8,13 +8,25 @@ set -q XDG_DATA_HOME
 
 set -g theme_display_date no
 
-function fish_greeting
-  cowsay -f tux (who)
-end
-
+# some env variables
+set -gx MUSIC_PATH "$HOME/Music"
 set -gx GOPATH "$HOME/go"
 set -gx PATH "$GOPATH/bin" "$HOME/bin" $PATH
 set -gx EDITOR vim
+
+# some functions
+function download_mp3
+   if not test -d $MUSIC_PATH
+       echo "Creating music directory: $MUSIC_PATH"
+       mkdir $MUSIC_PATH
+   end
+
+   youtube-dl -x --audio-format mp3 $argv[1] -o "$MUSIC_PATH/%(title)s.%(ext)s"
+end
+
+function fish_greeting
+  cowsay -f tux (who)
+end
 
 # some aliases
 alias ll "ls -alF"
