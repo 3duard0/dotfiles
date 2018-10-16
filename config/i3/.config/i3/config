@@ -169,7 +169,7 @@ exec --no-startup-id nm-applet
 
 # Dual Monitor
 set $monitor1 HDMI-0
-set $monitor2 DP-4
+set $monitor2 DP-0
 exec --no-startup-id monitor.sh $monitor1 $monitor2 --auto
 bindsym $mod+Shift+b exec monitor.sh $monitor1 $monitor2 --left
 bindsym $mod+Shift+n exec monitor.sh $monitor1 $monitor2 --right
