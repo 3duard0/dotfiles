@@ -43,6 +43,10 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'vim-scripts/AutoComplPop'
 
+" Javascript
+Plugin 'prettier/vim-prettier'
+Plugin 'pangloss/vim-javascript'
+
 call vundle#end()
 
 
@@ -260,3 +264,7 @@ inoremap <expr> <C-Space> (pumvisible() ? (col('.') > 1 ? '<Esc>i<Right>' : '<Es
 inoremap <expr> <S-Space> (pumvisible() ? (col('.') > 1 ? '<Esc>i<Right>' : '<Esc>i') : '') .
             \ '<C-x><C-u><C-r>=pumvisible() ? "\<lt>C-n>\<lt>C-p>\<lt>Down>" : ""<CR>'
 nnoremap <Leader>gr :w<CR> :GoRun<CR>
+
+
+" javascript
+autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 noexpandtab
