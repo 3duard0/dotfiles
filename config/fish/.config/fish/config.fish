@@ -13,7 +13,17 @@ set -g theme_display_date no
 ########################
 set -gx MUSIC_PATH "$HOME/Music"
 set -gx GOPATH "$HOME/go"
-set -gx PATH "$GOPATH/bin" "$HOME/bin" $PATH
+set -gx ANDROID_HOME "$HOME/Android/Sdk"
+
+# android env for react native
+set -gx PATH "$ANDROID_HOME/tools" $PATH
+set -gx PATH "$ANDROID_HOME/tools/bin" $PATH
+set -gx PATH "$ANDROID_HOME/platform-tools" $PATH
+set -gx PATH "$ANDROID_HOME/emulator" $PATH
+
+set -gx NODEPATH "$HOME/Programs/node-v10.11.0-linux-x64"
+set -gx PATH "$NODEPATH/bin" "$GOPATH/bin" "$HOME/bin" $PATH
+
 set -gx EDITOR vim
 
 ########################
