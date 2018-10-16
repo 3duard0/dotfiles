@@ -8,13 +8,17 @@ set -q XDG_DATA_HOME
 
 set -g theme_display_date no
 
-# some env variables
+########################
+# Environment Variables
+########################
 set -gx MUSIC_PATH "$HOME/Music"
 set -gx GOPATH "$HOME/go"
 set -gx PATH "$GOPATH/bin" "$HOME/bin" $PATH
 set -gx EDITOR vim
 
-# some functions
+########################
+# Functions
+########################
 function download_mp3
    if not test -d $MUSIC_PATH
        echo "Creating music directory: $MUSIC_PATH"
@@ -28,7 +32,9 @@ function fish_greeting
   cowsay -f tux (who)
 end
 
-# some aliases
+########################
+# Aliases
+########################
 alias ll "ls -alF"
 alias la "ls -A"
 alias l "ls -CF"
