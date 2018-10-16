@@ -25,6 +25,11 @@ Plugin 'tpope/vim-classpath'
 " Golang Plugins
 Plugin 'fatih/vim-go'
 
+" Ruby + Rails Plugins
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-rails'
+
 " Misc Plugins
 Plugin 'vim-scripts/paredit.vim'
 Plugin 'tpope/vim-surround'
