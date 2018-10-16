@@ -30,8 +30,8 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal -e /usr/bin/fish
-bindsym $mod+Shift+Return exec xfce4-terminal -e "/usr/bin/fish -c ranger"
+bindsym $mod+Return exec gnome-terminal -e /usr/bin/fish
+bindsym $mod+Shift+Return exec gnome-terminal -e "/usr/bin/fish -c ranger"
 bindsym $mod+Shift+o exec emacsclient -c
 
 # lock computer
