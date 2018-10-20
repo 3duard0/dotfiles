@@ -52,3 +52,6 @@ echo "source ~/peda/peda.py" >> ~/.gdbinit
 # Fish
 curl -L https://get.oh-my.fish | fish
 omf install bobthefish
+
+# Tmuxinator
+sudo gem install tmuxinator

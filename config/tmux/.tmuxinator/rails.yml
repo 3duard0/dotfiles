@@ -1,0 +1,12 @@
+project_name: rails
+project_root: .
+windows:
+    - editor:
+        layout: even-vertical
+        panes:
+            - rails server
+            - bundle exec guard
+    - editor:
+        panes:
+            - vim
+    - shell: #empty

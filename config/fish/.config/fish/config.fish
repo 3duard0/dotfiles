@@ -13,6 +13,7 @@ set -g theme_display_date no
 ########################
 set -gx MUSIC_PATH "$HOME/Music"
 set -gx GOPATH "$HOME/go"
+set -gx PIP_BIN_PATH "$HOME/.local/bin"
 set -gx ANDROID_HOME "$HOME/Android/Sdk"
 
 # android env for react native
@@ -22,7 +23,7 @@ set -gx PATH "$ANDROID_HOME/platform-tools" $PATH
 set -gx PATH "$ANDROID_HOME/emulator" $PATH
 
 set -gx NODEPATH "$HOME/Programs/node-v10.11.0-linux-x64"
-set -gx PATH "$NODEPATH/bin" "$GOPATH/bin" "$HOME/bin" $PATH
+set -gx PATH "$NODEPATH/bin" "$GOPATH/bin" "$HOME/bin" "$PIP_BIN_PATH" $PATH
 
 set -gx EDITOR vim
 
@@ -50,3 +51,4 @@ alias la "ls -A"
 alias l "ls -CF"
 alias emacs "emacsclient -t"
 alias et "emacsclient -t"
+alias devrails "tmuxinator start rails"
