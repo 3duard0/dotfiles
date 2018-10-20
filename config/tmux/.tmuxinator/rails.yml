@@ -1,8 +1,8 @@
 project_name: rails
 project_root: .
 windows:
-    - editor:
-        layout: even-vertical
+    - server-test:
+        layout: even-horizontal
         panes:
             - rails server
             - bundle exec guard
