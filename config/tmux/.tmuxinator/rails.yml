@@ -9,4 +9,6 @@ windows:
     - editor:
         panes:
             - vim
+    - sandbox:
+            - rails console --sandbox
     - shell: #empty
