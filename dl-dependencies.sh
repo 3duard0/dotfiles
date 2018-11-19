@@ -55,3 +55,8 @@ omf install bobthefish
 
 # Tmuxinator
 sudo gem install tmuxinator
+
+BAT_VERSION="0.9.0"
+curl -L "https://github.com/sharkdp/bat/releases/download/v$BAT_VERSION/bat_${BAT_VERSION}_amd64.deb" > "bat.deb"
+sudo dpkg -i bat.deb
+rm bat.deb
