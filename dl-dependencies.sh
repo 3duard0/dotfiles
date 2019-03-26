@@ -11,7 +11,7 @@ sudo apt install gcc\
             stow\
             curl fish\
             emacs vim xclip\
-            python-pip\
+            python-pip python3-pip\
             sshpass\
             cifs-utils ecryptfs-utils\
             cowsay fonts-hack-ttf\
@@ -29,6 +29,7 @@ sudo apt install gcc\
             evince\
             openjdk-8-jdk\
             wine-development\
+            shellcheck\
             cloc
 
 if [ ! -d $BIN_FOLDER ]; then
@@ -38,6 +39,8 @@ fi
 if [ ! -d $GO_BIN_FOLDER ]; then
     mkdir -p $GO_BIN_FOLDER
 fi
+
+pip3 install wal
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 

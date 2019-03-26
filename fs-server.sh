@@ -23,4 +23,5 @@ Fill the $CREDENTIALS_FILE with the correct data
 INSTRUCTIONS_CREDENTIALS
 
 echo "$HOST_IP $HOST" >> /etc/hosts
-echo "//$HOST/$VOLUME /media/smb cifs credentials=$CREDENTIALS_FILE,iocharset=utf8,sec=ntlm 0 0" >> /etc/fstab
+# TODO: mount data hds and backup
+echo "//$HOST/$VOLUME /media/smb cifs credentials=$CREDENTIALS_FILE,iocharset=utf8,sec=ntlm,uid=eduardo,gid=eduardo,user,exec,noauto 0 0" >> /etc/fstab
