@@ -12,18 +12,11 @@ set -g theme_display_date no
 # Environment Variables
 ########################
 set -gx MUSIC_PATH "$HOME/Music"
-set -gx GOPATH "$HOME/go"
 set -gx PIP_BIN_PATH "$HOME/.local/bin"
-set -gx ANDROID_HOME "$HOME/Android/Sdk"
 
-# android env for react native
-set -gx PATH "$ANDROID_HOME/tools" $PATH
-set -gx PATH "$ANDROID_HOME/tools/bin" $PATH
-set -gx PATH "$ANDROID_HOME/platform-tools" $PATH
-set -gx PATH "$ANDROID_HOME/emulator" $PATH
-
+set -gx RBENV "$HOME/.rbenv"
 set -gx NODEPATH "$HOME/Programs/node-v10.11.0-linux-x64"
-set -gx PATH "$NODEPATH/bin" "$GOPATH/bin" "$HOME/bin" "$PIP_BIN_PATH" $PATH
+set -gx PATH "$RBENV/shims" "$NODEPATH/bin" "$HOME/bin" "$PIP_BIN_PATH" $PATH
 
 set -gx EDITOR vim
 
@@ -43,6 +36,10 @@ function fish_greeting
   cowsay -f tux (who)
 end
 
+function check_shell_scripts
+  find . -type f \( -name '*.sh' -o -name '*.bash' -o -name '*.ksh' -o -name '*.csh' \) -exec 'shellcheck' '--format=gcc' '{}' \;
+end
+
 ########################
 # Aliases
 ########################
@@ -53,3 +50,8 @@ alias emacs "emacsclient -t"
 alias et "emacsclient -t"
 alias devrails "tmuxinator start rails"
 alias cat "bat"
+alias cs "check_shell_scripts"
+alias i3config "vim $HOME/.config/i3/config"
+alias fishconfig "vim $HOME/.config/fish/config.fish"
+
+/bin/cat ~/.cache/wal/sequences &
