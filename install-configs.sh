@@ -11,10 +11,17 @@ function install_packages {
       if $as_root ; then
          sudo sh -c "$cmd"
       else
-         eval $cmd
+         eval "$cmd"
       fi
   done
 }
 
+function install_cronjobs {
+  echo "Installing cronjob"
+  crontab ./cron.jobs
+}
+
 install_packages false "config" "$HOME"
-install_packages true "./root_config" "/"
+install_packages true "root_config" "/"
+
+install_cronjobs
