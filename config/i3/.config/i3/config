@@ -163,8 +163,10 @@ bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 
 # Wallpaper
-exec_always --no-startup-id feh --bg-center "/home/eduardo/Imagens/wp-donnie.jpg"
-exec_always --no-startup-id wal -i "/home/eduardo/Imagens/wp-donnie.jpg" -n
+exec_always --no-startup-id /home/eduardo/.local/bin/wal -q -i "/home/eduardo/Imagens/sweden.jpg" --saturate 1
+
+# Redshift
+exec --no-startup-id redshift
 
 # Network
 exec --no-startup-id nm-applet
