@@ -1,0 +1,5 @@
+#!/bin/bash
+
+mount /media/smb
+rsync -avh --backup /home/eduardo/dev /media/smb
+umount /media/smb
