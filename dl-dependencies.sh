@@ -2,10 +2,17 @@
 
 # This script has not been tested yet, to be used when computer is formated
 
-BIN_FOLDER="$HOME/bin"
-GO_BIN_FOLDER="$HOME/go/bin"
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+alias download="wget --show-progress"
 
+BIN_FOLDER="$HOME/bin"
+GO_BIN_FOLDER="$HOME/dev/go/bin"
+
+# make user folders
+mkdir -p "$BIN_FOLDER" \
+         "$GO_BIN_FOLDER" \
+         2>/dev/null
+
+# Install dependencies
 sudo apt update
 sudo apt install gcc\
             stow\
@@ -19,8 +26,8 @@ sudo apt install gcc\
 	        nvidia-driver\
             tmux\
             dmenu i3 i3status i3lock xbacklight feh\
-            vlc mpg123 \
-            gdb wireshark radare2\
+            vlc mpg123\
+            gdb wireshark\
             pavucontrol\
             htop\
             redshift\
@@ -30,33 +37,30 @@ sudo apt install gcc\
             openjdk-8-jdk\
             wine-development\
             shellcheck\
-            lm-sensors \
+            lm-sensors\
             cloc
 
-if [ ! -d $BIN_FOLDER ]; then
-    mkdir -p $BIN_FOLDER
-fi
-
-if [ ! -d $GO_BIN_FOLDER ]; then
-    mkdir -p $GO_BIN_FOLDER
-fi
-
+# Wal (terminal theme)
 pip3 install wal
 
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# Vundle (vim plugins manager)
+git clone "https://github.com/VundleVim/Vundle.vim.git" ~/.vim/bundle/Vundle.vim
 
-wget https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein -P "$BIN_FOLDER"
+# Leiningen (clojure build tools)
+download "https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein" -P "$BIN_FOLDER"
 chmod +x "$BIN_FOLDER/lein"
-wget https://raw.githubusercontent.com/slimm609/checksec.sh/master/checksec -P "$BIN_FOLDER"
-chmod +x "$BIN_FOLDER/checksec"
 
-git clone https://github.com/longld/peda.git "$HOME/peda"
-echo "source ~/peda/peda.py" >> ~/.gdbinit
+# Golang
+GO_VERSION="1.12.1"
+download "https://dl.google.com/go/go${GO_VERSION}.linux-amd64.tar.gz" -O /tmp/go.tar.gz
+sudo tar -C /usr/local -zxf /tmp/go.tar.gz
+rm /tmp/go.tar.gz
 
 # Tmuxinator
 sudo gem install tmuxinator
 
+# Cat highlight replacement
 BAT_VERSION="0.9.0"
-curl -L "https://github.com/sharkdp/bat/releases/download/v$BAT_VERSION/bat_${BAT_VERSION}_amd64.deb" > "bat.deb"
-sudo dpkg -i bat.deb
-rm bat.deb
+curl -L "https://github.com/sharkdp/bat/releases/download/v${BAT_VERSION}/bat_${BAT_VERSION}_amd64.deb" > "/tmp/bat.deb"
+sudo dpkg -i /tmp/bat.deb
+rm /tmp/bat.deb
