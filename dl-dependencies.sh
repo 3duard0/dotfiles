@@ -12,6 +12,12 @@ mkdir -p "$BIN_FOLDER" \
          "$GO_BIN_FOLDER" \
          2>/dev/null
 
+function video_driver {
+  if lspci | grep -qi "nvidia" ; then
+    echo "nvidia-driver"
+  fi
+}
+
 # Install dependencies
 sudo apt update
 sudo apt install gcc\
@@ -23,7 +29,7 @@ sudo apt install gcc\
             cifs-utils ecryptfs-utils\
             cowsay fonts-hack-ttf\
             git\
-	        nvidia-driver\
+            "$(video-driver)"\
             tmux\
             dmenu i3 i3status i3lock xbacklight feh\
             vlc mpg123\
