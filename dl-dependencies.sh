@@ -53,10 +53,6 @@ chmod +x "$BIN_FOLDER/checksec"
 git clone https://github.com/longld/peda.git "$HOME/peda"
 echo "source ~/peda/peda.py" >> ~/.gdbinit
 
-# Fish
-curl -L https://get.oh-my.fish | fish
-omf install bobthefish
-
 # Tmuxinator
 sudo gem install tmuxinator
 
