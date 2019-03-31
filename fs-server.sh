@@ -1,12 +1,22 @@
 #!/bin/bash
-# RUN AS ROOT PLEASE :)
+
+if [ "$EUID" -ne 0 ] || [ -z "$SUDO_USER" ]; then
+    echo "Please run as root with sudo"
+    exit
+fi
+
+function extract_uuid {
+  sudo blkid "$1" | cut -f2 -d' ' | sed 's/.*="\(.*\)"/\1/g'
+}
 
 HOST="fs-server"
 HOST_IP="192.0.0.2"
 CREDENTIALS_FILE="/root/.smbcredentials"
 VOLUME="Volume_1"
+HD_DATA_UUID=$(extract_uuid /dev/sda1)
+HD_DATA_BKP_UUID=$(extract_uuid /dev/sdb1)
 
-mkdir -p /media/smb
+mkdir -p /media/data /media/data-bkp /media/smb
 
 cat <<TEMPLATE_SMB > "$CREDENTIALS_FILE"
 username=REPLACE_USERNAME_HERE
@@ -23,5 +33,13 @@ Fill the $CREDENTIALS_FILE with the correct data
 INSTRUCTIONS_CREDENTIALS
 
 echo "$HOST_IP $HOST" >> /etc/hosts
-# TODO: mount data hds and backup
-echo "//$HOST/$VOLUME /media/smb cifs credentials=$CREDENTIALS_FILE,iocharset=utf8,sec=ntlm,uid=eduardo,gid=eduardo,user,exec,noauto 0 0" >> /etc/fstab
+
+# Add Data, Data backup and NAS to fstab
+cat <<FSTAB_APPEND >> /etc/fstab
+# Data
+UUID=$HD_DATA_UUID /media/data	ext4	defaults	0	2
+# Data Backup
+UUID=$HD_DATA_BKP_UUID /media/data-bkp	ext4	defaults	0	2
+# NAS
+//$HOST/$VOLUME /media/smb cifs credentials=$CREDENTIALS_FILE,iocharset=utf8,sec=ntlm,uid=$(id $"SUDO_USER" -u),gid=$(id $"SUDO_USER" -g),user,exec,noauto 0 0
+FSTAB_APPEND
