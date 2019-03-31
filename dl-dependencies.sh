@@ -30,6 +30,7 @@ sudo apt install gcc\
             openjdk-8-jdk\
             wine-development\
             shellcheck\
+            lm-sensors \
             cloc
 
 if [ ! -d $BIN_FOLDER ]; then
