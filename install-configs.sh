@@ -1,5 +1,14 @@
 #!/bin/bash
 
+function ask_to_exec {
+    msg=$1
+    func=${*:2}
+    read -p "${msg} [y/n]: " -r
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        $func
+    fi
+}
+
 function install_packages {
   as_root="$1"
   source_dir="$2"
@@ -17,14 +26,17 @@ function install_packages {
 }
 
 function install_cronjobs {
-  read -p "Install cronjobs? [y/n]: " -r
-  if [[ $REPLY =~ ^[Yy]$ ]]; then
-    echo "installing cronjobs"
-    crontab ./cron.jobs
-  fi
+  echo "installing cronjobs"
+  crontab ./cron.jobs
+}
+
+function install_terminal_profile {
+  echo "installing terminal profile"
+  dconf load /org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ < terminal-profile.dconf
 }
 
 install_packages false "config" "$HOME"
 install_packages true "root_config" "/"
 
-install_cronjobs
+ask_to_exec "Install cronjobs?" install_cronjobs
+ask_to_exec "Install terminal profile?" install_terminal_profile
