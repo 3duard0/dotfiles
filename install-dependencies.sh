@@ -2,8 +2,6 @@
 
 # This script has not been tested yet, to be used when computer is formated
 
-alias download="wget --show-progress"
-
 BIN_FOLDER="$HOME/bin"
 GO_BIN_FOLDER="$HOME/dev/go/bin"
 
@@ -20,6 +18,7 @@ function video_driver {
 
 # Install dependencies
 sudo apt update
+sudo apt upgrade
 sudo apt install gcc\
             stow\
             curl fish\
@@ -53,12 +52,12 @@ pip3 install wal
 git clone "https://github.com/VundleVim/Vundle.vim.git" ~/.vim/bundle/Vundle.vim
 
 # Leiningen (clojure build tools)
-download "https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein" -P "$BIN_FOLDER"
+wget --show-progress "https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein" -P "$BIN_FOLDER"
 chmod +x "$BIN_FOLDER/lein"
 
 # Golang
 GO_VERSION="1.12.1"
-download "https://dl.google.com/go/go${GO_VERSION}.linux-amd64.tar.gz" -O /tmp/go.tar.gz
+wget --show-progress "https://dl.google.com/go/go${GO_VERSION}.linux-amd64.tar.gz" -O /tmp/go.tar.gz
 sudo tar -C /usr/local -zxf /tmp/go.tar.gz
 rm /tmp/go.tar.gz
 

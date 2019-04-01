@@ -17,8 +17,11 @@ function install_packages {
 }
 
 function install_cronjobs {
-  echo "Installing cronjob"
-  crontab ./cron.jobs
+  read -p "Install cronjobs? [y/n]: " -r
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    echo "installing cronjobs"
+    crontab ./cron.jobs
+  fi
 }
 
 install_packages false "config" "$HOME"

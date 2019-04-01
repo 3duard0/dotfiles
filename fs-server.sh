@@ -6,7 +6,7 @@ if [ "$EUID" -ne 0 ] || [ -z "$SUDO_USER" ]; then
 fi
 
 function extract_uuid {
-  sudo blkid "$1" | cut -f2 -d' ' | sed 's/.*="\(.*\)"/\1/g'
+  blkid "$1" | cut -f2 -d' ' | sed 's/.*="\(.*\)"/\1/g'
 }
 
 HOST="fs-server"
