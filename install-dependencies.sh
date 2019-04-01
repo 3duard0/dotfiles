@@ -69,3 +69,6 @@ BAT_VERSION="0.9.0"
 curl -L "https://github.com/sharkdp/bat/releases/download/v${BAT_VERSION}/bat_${BAT_VERSION}_amd64.deb" > "/tmp/bat.deb"
 sudo dpkg -i /tmp/bat.deb
 rm /tmp/bat.deb
+
+# OMF (oh-my-fish: add custom theme to fish)
+curl -L https://get.oh-my.fish | fish
