@@ -1,0 +1,5 @@
+PrivacyBadger
+Ublock origins
+Decentraleyes
+HttpsEverywhere
+NoScript

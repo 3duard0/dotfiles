@@ -35,8 +35,11 @@ function install_terminal_profile {
   dconf load /org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ < terminal-profile.dconf
 }
 
-install_packages false "config" "$HOME"
-install_packages true "root_config" "/"
+function install_configs {
+  install_packages false "config" "$HOME"
+  install_packages true "root_config" "/"
+}
 
+ask_to_exec "Install configs?" install_configs
 ask_to_exec "Install cronjobs?" install_cronjobs
 ask_to_exec "Install terminal profile?" install_terminal_profile
