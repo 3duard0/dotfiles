@@ -1,7 +1,7 @@
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
-	hooksPath = /home/eduardo/.git-hooks
+	hooksPath = ~/.git-hooks
 [alias]
 	graph = log --graph --all --decorate --pretty=oneline --abbrev-commit
 [user]
