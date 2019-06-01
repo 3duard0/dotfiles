@@ -9,10 +9,9 @@ set -gx PIP_BIN_PATH "$HOME/.local/bin"
 set -gx GOPATH "$HOME/dev/go"
 set -gx GOBIN "$GOPATH/bin"
 set -gx RBENV "$HOME/.rbenv"
-set -gx NODE_PATH "$HOME/Programs/node-v10.11.0-linux-x64"
 set -gx PATH "$HOME/bin" \
-             "$RBENV/shims" "$NODE_PATH/bin" "$PIP_BIN_PATH" \
-             "/usr/local/go/bin" "$GOPATH" "$GOBIN" \
+             "$RBENV/shims" \
+             "$PIP_BIN_PATH" \
              $PATH
 
 set -gx EDITOR vim
@@ -41,6 +40,15 @@ function find_big_files
   find . -type f -exec du -Sh '{}' + | sort -rh | head -n 40
 end
 
+function rabbit_start
+  docker run -d --name some-rabbit -p 5672:5672 -p 15672:15672 rabbitmq:3-management
+end
+
+function rabbit_stop
+  docker container stop some-rabbit
+  docker container rm -f some-rabbit
+end
+
 ########################
 # Aliases
 ########################
@@ -55,8 +63,69 @@ alias cs "check_shell_scripts"
 alias i3config "vim $HOME/.config/i3/config"
 alias fishconfig "vim $HOME/.config/fish/config.fish"; alias fish_config fishconfig
 alias top "htop"
+alias bundle1 "bundle _1.17.3_"
+
+########################
+# Git
+########################
+
+function current_branch
+  git rev-parse --abbrev-ref HEAD
+end
+
+alias gf "git fetch"
+alias gs "git status"
+
+alias ga "git add"
+alias gau "git add -u"
+alias gaa "git add -A"
+alias gap "git add -p"
+
+alias gd "git diff"
+alias gds "git diff --stat"
+alias gdc "git diff --cached"
+alias gdcs "git diff --cached --stat"
+
+alias glg "git graph"
+alias gl "git log"
+alias gls "git log --stat"
+alias glp "git log -p"
+alias glps "git log -p --stat"
+
+alias gc "git commit"
+alias gcm "git commit -m"
+alias gca "git commit --amend"
+
+alias gm "git merge"
+alias gmm "git merge origin/master"
+
+alias gr "git rebase"
+alias grm "git rebase origin/master"
+
+function gri
+  git rebase -i HEAD~$argv
+end
+
+function gcut
+  git rebase --onto origin/master $argv (current_branch)
+end
+
+alias gp "git push"
+function gpu
+  git push -u origin (current_branch)
+end
+
+# update command
+alias gu "git pull"
+
+# branch commands
+alias gb "git checkout"
+alias gbb "git checkout -b"
+
+
+
 
 ########################
 # Startup commands
 ########################
-/bin/cat ~/.cache/wal/sequences &
+cd ~/dev/m4u

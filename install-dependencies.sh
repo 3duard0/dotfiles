@@ -12,7 +12,11 @@ mkdir -p "$BIN_FOLDER" \
 
 function video_driver {
   if lspci | grep -qi "nvidia" ; then
-    echo "nvidia-driver"
+      if uname -a | grep -qi "ubuntu" ; then
+          echo "nvidia-driver-390"
+      else
+          echo "nvidia-driver"
+      fi
   fi
 }
 

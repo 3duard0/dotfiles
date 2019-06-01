@@ -1,10 +1,11 @@
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
+	hooksPath = /home/eduardo/.git-hooks
 [alias]
 	graph = log --graph --all --decorate --pretty=oneline --abbrev-commit
 [user]
-	email = dududuedu.seabra@gmail.com
+	email = eduardo.seabra@m4u.com.br
 	name = Eduardo Seabra
 [push]
 	default = simple
