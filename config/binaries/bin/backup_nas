@@ -1,5 +1,5 @@
 #!/bin/bash
 
-mount /media/smb
+sudo mount /media/smb
 rsync -avh --backup /home/eduardo/dev /media/smb
-umount /media/smb
+sudo umount /media/smb
