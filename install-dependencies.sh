@@ -26,7 +26,7 @@ sudo apt upgrade
 sudo apt install gcc\
             stow\
             curl fish\
-            emacs vim xclip\
+            emacs vim vim-gtk xclip\
             python-pip python3-pip\
             sshpass\
             cifs-utils ecryptfs-utils\

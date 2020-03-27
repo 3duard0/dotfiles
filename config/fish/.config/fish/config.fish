@@ -49,6 +49,20 @@ function rabbit_stop
   docker container rm -f some-rabbit
 end
 
+function cwd
+  echo (pwd) > /tmp/my_cwd
+end
+
+function cdcwd
+  set cwd (/bin/cat /tmp/my_cwd 2>>/dev/null)
+  if test -z "$cwd"
+      cd "$HOME/dev/m4u"
+  else
+      cd "$cwd"
+  end
+end
+
+
 ########################
 # Aliases
 ########################
@@ -121,11 +135,12 @@ alias gu "git pull"
 # branch commands
 alias gb "git checkout"
 alias gbb "git checkout -b"
+alias gbn gbb
 
-
-
+alias timestamp "date \"+%Y%m%d%H%M%S\""
 
 ########################
 # Startup commands
 ########################
-cd ~/dev/m4u
+cdcwd
+
