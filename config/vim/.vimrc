@@ -30,6 +30,10 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-rails'
 
+" Elixir Plugins
+Plugin 'elixir-editors/vim-elixir'
+Plugin 'slashmili/alchemist.vim'
+
 " Misc Plugins
 Plugin 'vim-scripts/paredit.vim'
 Plugin 'tpope/vim-surround'
@@ -46,6 +50,11 @@ Plugin 'vim-scripts/AutoComplPop'
 " Javascript
 Plugin 'prettier/vim-prettier'
 Plugin 'pangloss/vim-javascript'
+
+" Rust Plugins
+Plugin 'rust-lang/rust.vim'
+Plugin 'timonv/vim-cargo'
+Plugin 'racer-rust/vim-racer'
 
 call vundle#end()
 
