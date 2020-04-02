@@ -15,6 +15,7 @@ set -gx PATH "$HOME/bin" \
              $PATH
 
 set -gx EDITOR vim
+set -gx ERL_AFLAGS "-kernel shell_history enabled -kernel shell_history_file_bytes 1024000"
 
 ########################
 # Functions
@@ -56,7 +57,7 @@ end
 function cdcwd
   set cwd (/bin/cat /tmp/my_cwd 2>>/dev/null)
   if test -z "$cwd"
-      cd "$HOME/dev/m4u"
+      cd "$HOME/dev"
   else
       cd "$cwd"
   end

@@ -41,5 +41,5 @@ UUID=$HD_DATA_UUID /media/data	ext4	defaults	0	2
 # Data Backup
 UUID=$HD_DATA_BKP_UUID /media/data-bkp	ext4	defaults	0	2
 # NAS
-//$HOST/$VOLUME /media/smb cifs credentials=$CREDENTIALS_FILE,iocharset=utf8,sec=ntlm,uid=$(id $"SUDO_USER" -u),gid=$(id $"SUDO_USER" -g),user,exec,noauto 0 0
+//$HOST/$VOLUME /media/smb cifs credentials=$CREDENTIALS_FILE,iocharset=utf8,sec=ntlm,uid=$(id "$SUDO_USER" -u),gid=$(id "$SUDO_USER" -g),user,exec,noauto 0 0
 FSTAB_APPEND
