@@ -29,8 +29,8 @@ font pango:DejaVu Sans Mono 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal -e /usr/bin/fish
-bindsym $mod+Shift+Return exec gnome-terminal -e "/usr/bin/fish -c ranger"
+bindsym $mod+Return exec alacritty -e /usr/bin/fish
+bindsym $mod+Shift+Return exec alacritty -e "/usr/bin/fish -c ranger"
 bindsym $mod+Shift+o exec emacsclient -c
 
 # lock computer

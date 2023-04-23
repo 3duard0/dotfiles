@@ -10,7 +10,7 @@ function extract_uuid {
 }
 
 HOST="fs-server"
-HOST_IP="192.0.0.2"
+HOST_IP="192.168.0.15"
 CREDENTIALS_FILE="/root/.smbcredentials"
 VOLUME="Volume_1"
 HD_DATA_UUID=$(extract_uuid /dev/sda1)
@@ -19,8 +19,8 @@ HD_DATA_BKP_UUID=$(extract_uuid /dev/sdb1)
 mkdir -p /media/data /media/data-bkp /media/smb
 
 cat <<TEMPLATE_SMB > "$CREDENTIALS_FILE"
-username=REPLACE_USERNAME_HERE
-password=REPLACE_PASSWORD_HERE
+username=USERNAME
+password=PASSWORD
 TEMPLATE_SMB
 
 echo

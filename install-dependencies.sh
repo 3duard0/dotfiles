@@ -3,7 +3,6 @@
 # This script has not been tested yet, to be used when computer is formated
 
 BIN_FOLDER="$HOME/bin"
-GO_BIN_FOLDER="$HOME/dev/go/bin"
 
 # make user folders
 mkdir -p "$BIN_FOLDER" \
@@ -24,6 +23,7 @@ function video_driver {
 sudo apt update
 sudo apt upgrade
 sudo apt install gcc\
+            cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 \
             stow\
             curl fish\
             emacs vim vim-gtk xclip\
@@ -49,30 +49,20 @@ sudo apt install gcc\
             lm-sensors\
             cloc
 
-# Wal (terminal theme)
-pip3 install wal
+# Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-# Vundle (vim plugins manager)
-git clone "https://github.com/VundleVim/Vundle.vim.git" ~/.vim/bundle/Vundle.vim
+#Neovim
+wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
+tar -zxvf nvim-linux64.tar.gz
+mv nvim-linux64 ~/bin/nvim-app
+ln -s ~/bin/nvim-app/bin/nvim ~/bin/nvim
 
-# Leiningen (clojure build tools)
-wget --show-progress "https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein" -P "$BIN_FOLDER"
-chmod +x "$BIN_FOLDER/lein"
+#Lunarvim
+LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
 
-# Golang
-GO_VERSION="1.12.1"
-wget --show-progress "https://dl.google.com/go/go${GO_VERSION}.linux-amd64.tar.gz" -O /tmp/go.tar.gz
-sudo tar -C /usr/local -zxf /tmp/go.tar.gz
-rm /tmp/go.tar.gz
-
-# Tmuxinator
-sudo gem install tmuxinator
-
-# Cat highlight replacement
-BAT_VERSION="0.9.0"
-curl -L "https://github.com/sharkdp/bat/releases/download/v${BAT_VERSION}/bat_${BAT_VERSION}_amd64.deb" > "/tmp/bat.deb"
-sudo dpkg -i /tmp/bat.deb
-rm /tmp/bat.deb
+#Alacritty
+cargo install alacritty
 
 # OMF (oh-my-fish: add custom theme to fish)
 curl -L https://get.oh-my.fish | fish
