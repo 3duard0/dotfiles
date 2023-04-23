@@ -6,10 +6,11 @@ set -g theme_display_date no
 set -gx MUSIC_PATH "$HOME/Music"
 set -gx PIP_BIN_PATH "$HOME/.local/bin"
 
-set -gx GOPATH "$HOME/dev/go"
-set -gx GOBIN "$GOPATH/bin"
 set -gx RBENV "$HOME/.rbenv"
 set -gx PATH "$HOME/bin" \
+             "$HOME/.cargo/bin" \
+             "$HOME/.cabal/bin" \
+             "$HOME/.ghcup/bin" \
              "$RBENV/shims" \
              "$PIP_BIN_PATH" \
              $PATH
@@ -57,7 +58,7 @@ end
 function cdcwd
   set cwd (/bin/cat /tmp/my_cwd 2>>/dev/null)
   if test -z "$cwd"
-      cd "$HOME/dev"
+      cd "$HOME/devel"
   else
       cd "$cwd"
   end
@@ -73,7 +74,6 @@ alias l "ls -CF"
 alias emacs "emacsclient -t"
 alias et "emacsclient -t"
 alias devrails "tmuxinator start rails"
-alias cat "bat"
 alias cs "check_shell_scripts"
 alias i3config "vim $HOME/.config/i3/config"
 alias fishconfig "vim $HOME/.config/fish/config.fish"; alias fish_config fishconfig
@@ -138,6 +138,10 @@ alias gb "git checkout"
 alias gbb "git checkout -b"
 alias gbn gbb
 
+# vim
+alias vvim vim
+alias vim lvim
+
 alias timestamp "date \"+%Y%m%d%H%M%S\""
 
 ########################
@@ -145,3 +149,4 @@ alias timestamp "date \"+%Y%m%d%H%M%S\""
 ########################
 cdcwd
 
+source ~/.asdf/asdf.fish
