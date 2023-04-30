@@ -126,6 +126,8 @@ function gcut
 end
 
 alias gp "git push"
+alias gpf "git push --force"
+
 function gpu
   git push -u origin (current_branch)
 end

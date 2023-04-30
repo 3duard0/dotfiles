@@ -48,7 +48,7 @@ sudo apt install gcc\
             shellcheck\
             lm-sensors\
             cloc \
-            picom
+            picom \
             mpd
 
 pip3 install pywal
