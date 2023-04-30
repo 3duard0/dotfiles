@@ -47,8 +47,11 @@ sudo apt install gcc\
             wine-development\
             shellcheck\
             lm-sensors\
-            cloc
+            cloc \
+            picom
+            mpd
 
+pip3 install pywal
 # Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 

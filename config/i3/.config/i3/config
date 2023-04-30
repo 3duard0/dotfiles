@@ -40,7 +40,7 @@ bindsym $mod+Shift+p exec i3lock -c 000000
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec rofi -show run
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -145,9 +145,9 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
-bar {
-    status_command i3status
-}
+#bar {
+#    status_command i3status
+#}
 
 # Media keys
 bindsym XF86AudioMute exec amixer set Master 1+ toggle
@@ -162,8 +162,14 @@ bindsym XF86AudioPrev exec --no-startup-id dbus-send --print-reply --dest=org.mp
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 
+# Polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh --shapes
+
 # Wallpaper
-exec_always --no-startup-id /home/eduardo/.local/bin/wal -q -i "/home/eduardo/Imagens/sweden.jpg" --saturate 1
+exec_always --no-startup-id feh --bg-scale "/home/eduardo/Imagens/windmill.jpg"
+
+# Picom
+exec_always --no-startup-id picom -b
 
 # Redshift
 exec --no-startup-id redshift
@@ -184,3 +190,20 @@ new_window 1pixel
 
 assign [class="(?i)Steam"] 2
 assign [class="(?i)csgo.*"] 2
+
+gaps inner 5px
+gaps outer 5px
+smart_gaps on
+
+
+set $bg-color 	         #2f343f
+set $inactive-bg-color   #2f343f
+set $text-color          #f3f4f5
+set $inactive-text-color #676E7D
+set $urgent-bg-color     #E53935
+
+client.focused          $bg-color           $bg-color          $text-color          #424242
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #424242
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #424242
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #424242
+
