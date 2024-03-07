@@ -1,0 +1,26 @@
+- name: Fetch dotfiles(user) directories
+  find:
+    paths: "{{ user_dotfiles_folder }}"
+    recurse: no
+    file_type: directory
+  register: user_dotfiles_dirs
+  
+- name: Install dotfiles(user)
+  shell: "stow -d {{ user_dotfiles_folder }} -t {{ ansible_env.HOME }} --verbose=2 {{item.path | basename}}"
+  with_items: "{{ user_dotfiles_dirs.files }}"
+  register: result
+  changed_when: 'result.stderr is search("LINK: ")'
+
+- name: Fetch dotfiles(root) directories
+  find:
+    paths: "{{ root_dotfiles_folder }}"
+    recurse: no
+    file_type: directory
+  register: root_dotfiles_dirs
+  
+- name: Install dotfiles(root)
+  become: true
+  shell: "stow -d {{ root_dotfiles_folder }} -t {{ ansible_env.HOME }} --verbose=2 {{item.path | basename}}"
+  with_items: "{{ root_dotfiles_dirs.files }}"
+  register: result
+  changed_when: 'result.stderr is search("LINK: ")'
