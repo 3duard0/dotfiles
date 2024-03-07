@@ -6,7 +6,7 @@
   register: user_dotfiles_dirs
   
 - name: Install dotfiles(user)
-  shell: "stow -d {{ user_dotfiles_folder }} -t {{ ansible_env.HOME }} --verbose=2 {{item.path | basename}}"
+  shell: "stow -d {{ user_dotfiles_folder }} -t {{ ansible_env.HOME }} {{item.path | basename}}"
   with_items: "{{ user_dotfiles_dirs.files }}"
   register: result
   changed_when: 'result.stderr is search("LINK: ")'
@@ -20,7 +20,7 @@
   
 - name: Install dotfiles(root)
   become: true
-  shell: "stow -d {{ root_dotfiles_folder }} -t {{ ansible_env.HOME }} --verbose=2 {{item.path | basename}}"
+  shell: "stow -d {{ root_dotfiles_folder }} -t {{ ansible_env.HOME }} {{item.path | basename}}"
   with_items: "{{ root_dotfiles_dirs.files }}"
   register: result
   changed_when: 'result.stderr is search("LINK: ")'
