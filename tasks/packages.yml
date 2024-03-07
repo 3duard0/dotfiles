@@ -1,0 +1,20 @@
+---
+- name: Install package signing keys via download
+  become: true
+  apt_key:
+    url: "{{ item }}"
+    state: present
+  with_items: "{{ apt_signing_keys }}"
+
+- name: Add package sources
+  become: true
+  apt_repository:
+    repo: "{{ item }}"
+    state: present
+  with_items: "{{ apt_repositories }}"
+
+- name: Install packages
+  become: true
+  apt:
+    name: "{{ apt_packages }}"
+    update_cache: true

@@ -1,0 +1,19 @@
+---
+- hosts: all
+  connection: local
+
+  tasks:
+    - include_tasks: tasks/packages.yml
+      tags: packages
+
+    - include_tasks: tasks/dotfiles.yml
+      tags: dotfiles
+
+    - include_tasks: tasks/user-config.yml
+      tags: user-config
+    
+    - include_tasks: tasks/mount.yml
+      tags: mount
+
+    - include_tasks: tasks/cron.yml
+      tags: cron
