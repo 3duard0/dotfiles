@@ -1,0 +1,55 @@
+---
+
+- name: Create data drive folder
+  become: true
+  ansible.builtin.file:
+    path: /media/data
+    owner: root
+    group: root
+    mode: 0755
+    state: directory
+
+
+- name: Create data backup drive folder
+  become: true
+  ansible.builtin.file:
+    path: /media/data-bkp
+    owner: root
+    group: root
+    mode: 0755
+    state: directory
+
+
+- name: Create samba drive folder
+  become: true
+  ansible.builtin.file:
+    path: /media/smb
+    owner: root
+    group: root
+    mode: 0755
+    state: directory
+
+- name: Add IP address of all hosts to all hosts
+  become: true
+  lineinfile:
+    dest: /etc/hosts
+    line: "{{fs_server_ip}} {{fs_server_host}}"
+    state: present
+
+- name: Add mount points to fstab
+  become: true
+  blockinfile:
+    path: /etc/fstab
+    block: |
+      UUID={{ uuid_data_drive }} /media/data ext4  defaults  0 2
+      UUID={{ uuid_data_bkp_drive }} /media/data-bkp ext4  defaults  0 2
+      //fs-server/Volume_1 /media/smb cifs credentials=/root/.smbcredentials,iocharset=utf8,guest,vers=1.0,uid=1000,gid=1000,user,exec,noauto 0 0
+
+- name: Creating a file with content
+  become: true
+  copy:
+    dest: "/root/.smbcredentials"
+    force: false
+    content: |
+      username=USERNAME
+      password=PASSWORD

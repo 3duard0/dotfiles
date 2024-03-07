@@ -1,0 +1,68 @@
+apt_packages:
+  - gcc
+  - cmake
+  - pkg-config
+  - libfreetype6-dev
+  - libfontconfig1-dev
+  - libxcb-xfixes0-dev
+  - libxkbcommon-dev
+  - python3
+  - stow
+  - ca-certificates
+  - curl
+  - fish
+  - emacs
+  - vim
+  - vim-gtk
+  - xclip
+  - python-pip
+  - python3-pip
+  - sshpass
+  - cifs-utils
+  - ecryptfs-utils
+  - cowsay
+  - fonts-hack-ttf
+  - git
+  - nvidia-driver-535
+  - tmux
+  - dmenu
+  - i3
+  - i3status
+  - i3lock
+  - xbacklight
+  - feh
+  - vlc
+  - mpg123
+  - gdb
+  - wireshark
+  - pavucontrol
+  - htop
+  - redshift
+  - ranger
+  - w3m
+  - caca-utils
+  - youtube-dl
+  - evince
+  - openjdk-8-jdk
+  - wine-development
+  - shellcheck
+  - lm-sensors
+  - cloc
+  - picom
+  - mpd
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
+  - docker-buildx-plugin
+  - docker-compose-plugin
+  - docker-compose
+  
+apt_signing_keys:
+  - https://www.virtualbox.org/download/oracle_vbox_2016.asc
+  - https://www.virtualbox.org/download/oracle_vbox.asc
+  - https://download.docker.com/linux/ubuntu/gpg
+
+apt_repositories:
+  - "deb http://download.virtualbox.org/virtualbox/debian {{ ubuntu_distribution }} contrib"
+  - "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ubuntu_distribution }} stable"
+
