@@ -116,6 +116,7 @@ alias gmm "git merge origin/master"
 
 alias gr "git rebase"
 alias grm "git rebase origin/master"
+alias terraform "opentofu.tofu"
 
 function gri
   git rebase -i HEAD~$argv

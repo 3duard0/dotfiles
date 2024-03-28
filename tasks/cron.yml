@@ -21,3 +21,5 @@
     minute: 0
     weekday: 5
     job: "/home/eduardo/bin/backup_nas"
+
+...
