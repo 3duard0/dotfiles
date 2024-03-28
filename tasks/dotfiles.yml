@@ -1,3 +1,5 @@
+---
+
 - name: Fetch dotfiles(user) directories
   find:
     paths: "{{ user_dotfiles_folder }}"
@@ -24,3 +26,5 @@
   with_items: "{{ root_dotfiles_dirs.files }}"
   register: result
   changed_when: 'result.stderr is search("LINK: ")'
+
+...

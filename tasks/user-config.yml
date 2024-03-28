@@ -1,4 +1,7 @@
+---
 
 - name: Add user to docker group
   become: true
   shell: "usermod -a -G docker,sudo {{ username }}"
+
+...

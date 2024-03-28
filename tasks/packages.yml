@@ -1,4 +1,5 @@
 ---
+
 - name: Install package signing keys via download
   become: true
   apt_key:
@@ -18,3 +19,5 @@
   apt:
     name: "{{ apt_packages }}"
     update_cache: true
+
+...
