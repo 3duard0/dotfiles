@@ -4,13 +4,18 @@ set -g theme_display_date no
 # Environment Variables
 ########################
 set -gx MUSIC_PATH "$HOME/Music"
+set -gx GOPATH "$HOME/go"
+set -gx GOBIN "$GOPATH/bin"
 set -gx PIP_BIN_PATH "$HOME/.local/bin"
+set -gx PYENV_ROOT "$HOME/.pyenv"
 
 set -gx RBENV "$HOME/.rbenv"
 set -gx PATH "$HOME/bin" \
+             "$GOBIN" \
              "$HOME/.cargo/bin" \
              "$HOME/.cabal/bin" \
              "$HOME/.ghcup/bin" \
+             "$PYENV_ROOT/bin" \
              "$RBENV/shims" \
              "$PIP_BIN_PATH" \
              $PATH
@@ -153,3 +158,15 @@ alias timestamp "date \"+%Y%m%d%H%M%S\""
 cdcwd
 
 source ~/.asdf/asdf.fish
+
+
+# pyenv init
+if command -v pyenv 1>/dev/null 2>&1
+  pyenv init - | source
+end
+
+
+function __direnv_export_eval --on-event fish_postexec;
+	"/usr/bin/direnv" export fish | source;
+end
+

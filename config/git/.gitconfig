@@ -5,7 +5,9 @@
 [alias]
 	graph = log --graph --all --decorate --pretty=oneline --abbrev-commit
 [user]
-	email = dududuedu.seabra@gmail.com
+	email = edseabrasilva@gmail.com
 	name = Eduardo Seabra
 [push]
 	default = simple
+[includeIf "gitdir:~/devel/porfin/**"]
+  path = ~/devel/porfin/.gitconfig

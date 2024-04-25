@@ -151,9 +151,8 @@ bar {
 }
 
 # Media keys
-bindsym XF86AudioMute exec amixer set Master 1+ toggle
-bindsym XF86AudioRaiseVolume exec amixer sset Master 2%+
-bindsym XF86AudioLowerVolume exec amixer sset Master 2%-
+bindsym $mod+Shift+plus exec amixer sset Master 2%+
+bindsym $mod+Shift+minus exec amixer sset Master 2%-
 
 bindsym XF86AudioPlay exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 bindsym XF86AudioStop exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
