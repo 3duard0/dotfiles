@@ -151,22 +151,26 @@ bar {
 }
 
 # Media keys
-bindsym $mod+Shift+plus exec amixer sset Master 2%+
-bindsym $mod+Shift+minus exec amixer sset Master 2%-
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volumeAudioLowerVolume exec amixer sset Master 2%-
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
 
 bindsym XF86AudioPlay exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 bindsym XF86AudioStop exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
 bindsym XF86AudioNext exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 bindsym XF86AudioPrev exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 5%-
+
+bindsym Print exec --no-startup-id gnome-screenshot -i
 
 # Polybar
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh --shapes
 
 # Wallpaper
-exec_always --no-startup-id feh --bg-scale "/home/eduardo/Imagens/windmill.jpg"
+exec_always --no-startup-id feh --bg-scale "/usr/share/backgrounds/warty-final-ubuntu.png"
 
 # Picom
 exec_always --no-startup-id picom -b
@@ -190,10 +194,10 @@ new_window 1pixel
 
 assign [class="(?i)Steam"] 2
 assign [class="(?i)csgo.*"] 2
-
-gaps inner 5px
-gaps outer 5px
-smart_gaps on
+#
+#gaps inner 5px
+#gaps outer 5px
+#smart_gaps on
 
 
 set $bg-color 	         #2f343f

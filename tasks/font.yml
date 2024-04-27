@@ -1,0 +1,22 @@
+---
+
+- name: Download JetBrains Mono font zip file
+  get_url:
+    url: "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip"
+    dest: "~/.local/share/fonts/JetBrainsMono.zip"
+
+- name: Extract JetBrains Mono font
+  unarchive:
+    src: "~/.local/share/fonts/JetBrainsMono.zip"
+    dest: "~/.local/share/fonts"
+    remote_src: yes
+
+- name: Remove JetBrains Mono zip file
+  file:
+    path: "~/.local/share/fonts/JetBrainsMono.zip"
+    state: absent
+
+- name: Update font cache
+  command: fc-cache -fv
+
+...

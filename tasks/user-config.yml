@@ -1,7 +1,6 @@
 ---
 
-- name: Add user to docker group
+- name: Add user to docker,sudo and video group
   become: true
-  shell: "usermod -a -G docker,sudo {{ username }}"
-
+  shell: "usermod -a -G docker,sudo,video {{ username }}"
 ...
