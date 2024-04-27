@@ -12,9 +12,9 @@
 
     - include_tasks: tasks/user-config.yml
       tags: user-config
-    
+
     - include_tasks: tasks/mount.yml
       tags: mount
 
-    - include_tasks: tasks/cron.yml
-      tags: cron
+    - include_tasks: tasks/font.yml
+      tags: font

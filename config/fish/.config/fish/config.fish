@@ -8,6 +8,8 @@ set -gx GOPATH "$HOME/go"
 set -gx GOBIN "$GOPATH/bin"
 set -gx PIP_BIN_PATH "$HOME/.local/bin"
 set -gx PYENV_ROOT "$HOME/.pyenv"
+set -gx NEOVIM_PATH "/opt/nvim-linux64/bin"
+
 
 set -gx RBENV "$HOME/.rbenv"
 set -gx PATH "$HOME/bin" \
@@ -18,6 +20,7 @@ set -gx PATH "$HOME/bin" \
              "$PYENV_ROOT/bin" \
              "$RBENV/shims" \
              "$PIP_BIN_PATH" \
+             "$NEOVIM_PATH" \
              $PATH
 
 set -gx EDITOR vim

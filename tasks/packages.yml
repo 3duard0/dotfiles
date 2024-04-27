@@ -14,10 +14,21 @@
     state: present
   with_items: "{{ apt_repositories }}"
 
+- name: Add neovim PPA repository
+  become: yes
+  apt_repository:
+    repo: 'ppa:neovim-ppa/stable'
+    state: present
+
 - name: Install packages
   become: true
   apt:
     name: "{{ apt_packages }}"
     update_cache: true
+
+- name: Install LunarVim
+  shell: "LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)"
+  args:
+    executable: /bin/bash
 
 ...
