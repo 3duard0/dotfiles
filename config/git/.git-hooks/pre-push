@@ -6,3 +6,8 @@ if [ "$branch" = "master" ]; then
   echo "You can't push directly to master branch"
   exit 1
 fi
+
+if [ "$branch" = "main" ]; then
+  echo "You can't push directly to main branch"
+  exit 1
+fi
