@@ -1,1 +1,8 @@
 set surround
+set clipboard+=unnamed
+set easymotion
+set quickscope
+Plug 'terryma/vim-multiple-cursors'
+Plug 'preservim/nerdtree'
+
+

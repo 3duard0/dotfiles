@@ -45,3 +45,5 @@ flycheck_*.el
 .dir-locals.el
 
 wip/
+.idea/
+*.iml

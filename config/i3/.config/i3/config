@@ -156,10 +156,10 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #i
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volumeAudioLowerVolume exec amixer sset Master 2%-
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
 
-bindsym XF86AudioPlay exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
-bindsym XF86AudioStop exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
-bindsym XF86AudioNext exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
-bindsym XF86AudioPrev exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+bindsym XF86AudioPlay exec --no-startup-id playerctl play
+bindsym XF86AudioPause exec --no-startup-id playerctl pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 5%-
@@ -182,8 +182,8 @@ exec --no-startup-id redshift
 exec --no-startup-id nm-applet
 
 # Dual Monitor
-set $monitor1 DVI-D-0
-set $monitor2 DP-0
+set $monitor1 HDMI-3
+set $monitor2 DP-1
 exec --no-startup-id monitor.sh $monitor1 $monitor2 --auto
 bindsym $mod+Shift+b exec monitor.sh $monitor1 $monitor2 --left
 bindsym $mod+Shift+n exec monitor.sh $monitor1 $monitor2 --right
